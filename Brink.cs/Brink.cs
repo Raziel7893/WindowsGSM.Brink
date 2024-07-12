@@ -42,7 +42,7 @@ namespace WindowsGSM.Plugins
         // - Game server default values
         public string Port = "27015"; // Default port
 
-        public string Additional = ""; // Additional server start parameter
+        public string Additional = "+set exec_maxThreads 1 +exec server_objective_standard_vs.cfg +exec server.cfg"; // Additional server start parameter
 
         // TODO: Following options are not supported yet, as ther is no documentation of available options
         public string Maxplayers = "16"; // Default maxplayers        
