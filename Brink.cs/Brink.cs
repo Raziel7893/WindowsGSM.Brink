@@ -77,9 +77,9 @@ namespace WindowsGSM.Plugins
             sb.Append($"+set si_name {_serverData.ServerName} ");
             sb.Append($"+set net_ip {_serverData.ServerIP} ");
             sb.Append($"+set net_serverPort {_serverData.ServerPort} ");
-            sb.Append($"+set net_serverPortMaster ={_serverData.ServerQueryPort} ");
+            sb.Append($"+set net_serverPortMaster {_serverData.ServerQueryPort} ");
             sb.Append($"+set net_serverDedicated 1 ");
-            sb.Append($"+set fs_savepath ./ ");
+            sb.Append($"+set fs_savepath ./Save ");
             sb.Append($"+set si_maxPlayers {_serverData.ServerMaxPlayer}");
             sb.Append($"{_serverData.ServerParam} ");
 
