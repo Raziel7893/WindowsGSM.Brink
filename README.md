@@ -4,6 +4,8 @@
 ## PLEASE ⭐STAR⭐ THE REPO IF YOU LIKE IT! THANKS!
 
 ### Notes
+- Steam musst be installed and started once.
+- For ServerListing it also needs to be running and logged in apperantly, as it does not support GSLT
 - The server needs one start to generate some ini files, so the first start could crash, just try again  
 - If IP Connect works but no Server Listing, try setting your public IP inside Edit Config Windows under Server IP
 - If local connections work but not External: see chapter Portforwarding
@@ -20,13 +22,13 @@
 4. Or Press on the Puzzle Icon in the left bottom side and press **[IMPORT PLUGIN]** and choose the downloaded .zip
 
 ### Official Documentation
-🗃️ Didn't find any documentation yet. Please Let me know if you came accros one
+🗃️ https://developer.valvesoftware.com/wiki/Brink_Dedicated_Server
 
 ### The Game
-🕹️ https://store.steampowered.com/app/16900/GROUND_BRANCH/
+🕹️ [https://store.steampowered.com/app/16900/GROUND_BRANCH/](https://store.steampowered.com/app/22350/BRINK/)
 
 ### Dedicated server info
-🖥️ https://steamdb.info/app/476400/info/
+🖥️ https://steamdb.info/app/72780/info/
 
 ### Port Forwarding (YOU NEED THIS, TO BE ABLE TO CONNECT FROM THE INTERNET(only for servers/pcs at home):
 - If You don't know How: portforward.com
