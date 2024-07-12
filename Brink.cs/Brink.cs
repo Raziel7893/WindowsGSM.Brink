@@ -18,7 +18,7 @@ namespace WindowsGSM.Plugins
             name = "WindowsGSM.BRINK", // WindowsGSM.XXXX
             author = "raziel7893",
             description = "WindowsGSM plugin for supporting BRINK Dedicated Server",
-            version = "1.0.0",
+            version = "1.1.0",
             url = "https://github.com/Raziel7893/WindowsGSM.brink", // Github repository link (Best practice) TODO
             color = "#34FFeb" // Color Hex
         };
@@ -43,7 +43,7 @@ namespace WindowsGSM.Plugins
         // - Game server default values
         public string Port = "27015"; // Default port
 
-        public string Additional = "+set exec_maxThreads 1 +exec autoexec.cfg"; // Additional server start parameter
+        public string Additional = "+set exec_maxThreads 1 +set net_serverPortAuth 8766 +exec autoexec.cfg"; // Additional server start parameter
 
         // TODO: Following options are not supported yet, as ther is no documentation of available options
         public string Maxplayers = "16"; // Default maxplayers        
