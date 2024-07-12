@@ -35,6 +35,7 @@ namespace WindowsGSM.Plugins
         // - Game server Fixed variables
         //public override string StartPath => "BRINKServer.exe"; // Game server start path
         public override string StartPath => "brink.exe";
+        public string DefaultConfig = "base/autoexec.cfg"; // provided config to start quickly
         public string FullName = "BRINK Dedicated Server"; // Game server FullName
         public bool AllowsEmbedConsole = true;  // Does this server support output redirect?
         public int PortIncrements = 1; // This tells WindowsGSM how many ports should skip after installation
@@ -42,7 +43,7 @@ namespace WindowsGSM.Plugins
         // - Game server default values
         public string Port = "27015"; // Default port
 
-        public string Additional = "+set exec_maxThreads 1 +exec server_objective_standard_vs.cfg +exec server.cfg"; // Additional server start parameter
+        public string Additional = "+set exec_maxThreads 1 +exec autoexec.cfg"; // Additional server start parameter
 
         // TODO: Following options are not supported yet, as ther is no documentation of available options
         public string Maxplayers = "16"; // Default maxplayers        
@@ -57,7 +58,8 @@ namespace WindowsGSM.Plugins
         // - Create a default cfg for the game server after installation
         public async void CreateServerCFG()
         {
-
+            const string CONTENT = "/*\r\n//Brink Map Rotation Admin Control\r\n\r\n//Server admin should set these console variables as\r\n//appropriate on the server. Map rotation is only allowed\r\n//for game rules of type sdGameRulesObjective and\r\n//sdGameRulesStopwatch.\r\n\r\n//MOTD\r\n\r\nsi_adminName \"\"\r\nsi_motd_1 \"\"\r\nsi_motd_2 \"\"\r\nsi_motd_3 \"\"\r\n\r\n\r\n//Gamerules\r\nsi_rules sdGameRulesStopWatch\r\nsi_timelimit 30\r\nsi_playmode 2\r\nnet_serverAllowHijacking 0\r\n\r\n//sleep\r\nbot_sleepWhenServerEmpty 1\r\ng_emptyServerRestartMap 1\r\n\r\n//Passwords    \r\n//Password your server?\r\n    //0 = No\r\n    //1 = Yes\r\nsi_needpass 0\r\n\r\n    //Password for your server – si_needpass NEEDS to be set to 1!\r\ng_password \"\"\r\nnet_serverRemoteConsolePassword remoteconsolepassword\r\n\r\n//join requirements\r\nsi_onlineMode 3\r\nsi_rankRestricted 0\r\nsi_maxRank 4\r\nsi_privateClients “0”\r\n//g_privatePassword “”\r\n\r\n\r\n//Player + Bots\r\nbot_enable 1\r\nbot_minclients 16\r\nsi_botDifficulty 3\r\nbot_aimSkill 3\r\nsi_warmupSpawn 1\r\nsi_readyPercent \"1\"\r\nsi_disableVoting 0\r\nseta g_minAutoVotePlayers 1\r\ng_spectatorMode 1\r\ng_spectateFreeFly 1\r\n\r\n//Team settings\r\nsi_teamForceBalance 1\r\ng_teamSwitchDelay 1\r\nsi_enemyTintEnabled 0\r\nsi_teamVoipEnabled 1\r\nsi_globalVoipEnabled 1\r\n\r\n//Maps\r\n//g_mapRotationVote \"mp/aquarium,mp/ccity,mp/reactor,mp/refuel,mp/resort,mp/sectow,mp/shipyard, mp/terminal\"\r\n\r\n// This rotation has DLC maps included\r\ng_mapRotationVote \"mp/aquarium,mp/ccity,mp/reactor,mp/refuel,mp/resort,mp/sectow,mp/shipyard,mp/terminal,mp/lab,mp/founders\"\r\n\r\nspawnserver mp/ccity";
+            File.WriteAllText(DefaultConfig, CONTENT);
         }
 
         // - Start server function, return its Process to WindowsGSM
@@ -80,7 +82,7 @@ namespace WindowsGSM.Plugins
             sb.Append($"+set net_serverPortMaster {_serverData.ServerQueryPort} ");
             sb.Append($"+set net_serverDedicated 1 ");
             sb.Append($"+set fs_savepath ./Save ");
-            sb.Append($"+set si_maxPlayers {_serverData.ServerMaxPlayer}");
+            sb.Append($"+set si_maxPlayers {_serverData.ServerMaxPlayer} +set si_maxPlayersHuman {_serverData.ServerMaxPlayer}");
             sb.Append($"{_serverData.ServerParam} ");
 
             // Prepare Process

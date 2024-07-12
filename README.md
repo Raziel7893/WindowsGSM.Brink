@@ -5,6 +5,7 @@
 
 ### Notes
 - Steam musst be installed and started once.
+- We provide a default autoexec.cfg
 - For ServerListing it also needs to be running and logged in apperantly, as it does not support GSLT
 - The server needs one start to generate some ini files, so the first start could crash, just try again  
 - If IP Connect works but no Server Listing, try setting your public IP inside Edit Config Windows under Server IP
@@ -50,6 +51,11 @@ All these params are automatically set by WGSM and can be changed via Edit Confi
 - +set si_maxPlayers $ServerMaxPlayer
 - +set net_serverDedicated 1 
 - +set fs_savepath ./ 
+
+### Config
+- to adjust configs either bo to Server Files (clock on Browse => Server Files), got to base and adjust autoexec.cfg 
+- or add variables to WindowsGSM by clicking Edit Config and modifing the last box Server Start Param
+- to set a password modify si_needpas
 
 
 ### Not having an full IPv4 adress ( named CCNAT or DSL Light )
