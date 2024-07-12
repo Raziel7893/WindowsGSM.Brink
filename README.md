@@ -55,7 +55,9 @@ All these params are automatically set by WGSM and can be changed via Edit Confi
 ### Config
 - to adjust configs either bo to Server Files (clock on Browse => Server Files), got to base and adjust autoexec.cfg 
 - or add variables to WindowsGSM by clicking Edit Config and modifing the last box Server Start Param
-- to set a password modify si_needpas
+- to set a password modify autoexec.cfg:
+  - set si_needpass to 1
+  - remove the // infront of g_password and set a password in the quotes
 
 
 ### Not having an full IPv4 adress ( named CCNAT or DSL Light )
@@ -89,4 +91,4 @@ Many windowsgsm plugin creators recommend zerotier (should be a free VPN designa
 This project is licensed under the MIT License - see the <a href="https://github.com/raziel7893/WindowsGSM.BRINK/blob/main/LICENSE">LICENSE.md</a> file for details
 
 ### Thanks
-Thanks to ohmcodes for the Enshrouded and Palworld Plugins which i used for guidance to create this one
+Thanks to user GhettoScouser for providing the idea and the initial config
