@@ -51,6 +51,7 @@ All these params are automatically set by WGSM and can be changed via Edit Confi
 - +set si_maxPlayers $ServerMaxPlayer
 - +set net_serverDedicated 1 
 - +set fs_savepath ./ 
+- +set net_serverPortAuth 8766  //can be changed via Server Start Param
 
 ### Config
 - to adjust configs either bo to Server Files (clock on Browse => Server Files), got to base and adjust autoexec.cfg 
