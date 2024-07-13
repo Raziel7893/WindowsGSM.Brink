@@ -5,10 +5,9 @@
 
 ### Notes
 - Steam musst be installed and started once.
-- We provide a default autoexec.cfg
-- For ServerListing it also needs to be running and logged in apperantly, as it does not support GSLT
-- The server needs one start to generate some ini files, so the first start could crash, just try again  
-- If IP Connect works but no Server Listing, try setting your public IP inside Edit Config Windows under Server IP
+- For ServerListing it also needs to be running and logged in apperantly, as the game does not support GSLT
+  - as the game is free i recoomend a seperate server account, but using the same account does also work
+- If IP Connect works but no Server Listing, you might be missing a portforwarding. look for chapter Portforwarding
 - If local connections work but not External: see chapter Portforwarding
 
 ### WindowsGSM Installation: 
@@ -32,9 +31,10 @@
 🖥️ https://steamdb.info/app/72780/info/
 
 ### Port Forwarding (YOU NEED THIS, TO BE ABLE TO CONNECT FROM THE INTERNET(only for servers/pcs at home):
-- If You don't know How: portforward.com
-- 27015 UDP - Default Game Port
-- 27016 UDP - Default QueryPort
+- If You don't know How: portforward.com. sadly nobody mentions what Protocoll so you need to forward both for all 3 ports
+- 27015 UDP/TCP - Default Game Port
+- 27016 UDP/TCP - Default QueryPort
+- 8766 UDP/TCP - Default Steam Auth Port, can be changed by clinging Edit Config, in Server Start Param  
 
 ### Files To Backup
 - Save Gane (You could only save serverfiles/BRINK/Saved , but that includes many big logs)
@@ -54,12 +54,11 @@ All these params are automatically set by WGSM and can be changed via Edit Confi
 - +set net_serverPortAuth 8766  //can be changed via Server Start Param
 
 ### Config
-- to adjust configs either bo to Server Files (clock on Browse => Server Files), got to base and adjust autoexec.cfg 
+- to adjust configs either go to Server Files (clock on Browse => Server Files), got to folder base and adjust autoexec.cfg 
 - or add variables to WindowsGSM by clicking Edit Config and modifing the last box Server Start Param
 - to set a password modify autoexec.cfg:
   - set si_needpass to 1
   - remove the // infront of g_password and set a password in the quotes
-
 
 ### Not having an full IPv4 adress ( named CCNAT or DSL Light )
 No game or gameserver supports ipv6 only connections. 
