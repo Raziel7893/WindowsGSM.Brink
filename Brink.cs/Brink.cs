@@ -18,7 +18,7 @@ namespace WindowsGSM.Plugins
             name = "WindowsGSM.BRINK", // WindowsGSM.XXXX
             author = "raziel7893",
             description = "WindowsGSM plugin for supporting BRINK Dedicated Server",
-            version = "1.1.0",
+            version = "1.1.1",
             url = "https://github.com/Raziel7893/WindowsGSM.brink", // Github repository link (Best practice) TODO
             color = "#34FFeb" // Color Hex
         };
