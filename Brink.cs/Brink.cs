@@ -58,8 +58,9 @@ namespace WindowsGSM.Plugins
         // - Create a default cfg for the game server after installation
         public async void CreateServerCFG()
         {
+            var configFile = Functions.ServerPath.GetServersServerFiles(_serverData.ServerID, DefaultConfig);
             const string CONTENT = "/*\r\n//Brink Map Rotation Admin Control\r\n\r\n//Server admin should set these console variables as\r\n//appropriate on the server. Map rotation is only allowed\r\n//for game rules of type sdGameRulesObjective and\r\n//sdGameRulesStopwatch.\r\n\r\n//MOTD\r\n\r\nsi_adminName \"\"\r\nsi_motd_1 \"\"\r\nsi_motd_2 \"\"\r\nsi_motd_3 \"\"\r\n\r\n\r\n//Gamerules\r\nsi_rules sdGameRulesStopWatch\r\nsi_timelimit 30\r\nsi_playmode 2\r\nnet_serverAllowHijacking 0\r\n\r\n//sleep\r\nbot_sleepWhenServerEmpty 1\r\ng_emptyServerRestartMap 1\r\n\r\n//Passwords    \r\n//Password your server?\r\n    //0 = No\r\n    //1 = Yes\r\nsi_needpass 0\r\n\r\n    //Password for your server – si_needpass NEEDS to be set to 1!\r\ng_password \"\"\r\nnet_serverRemoteConsolePassword remoteconsolepassword\r\n\r\n//join requirements\r\nsi_onlineMode 3\r\nsi_rankRestricted 0\r\nsi_maxRank 4\r\nsi_privateClients “0”\r\n//g_privatePassword “”\r\n\r\n\r\n//Player + Bots\r\nbot_enable 1\r\nbot_minclients 16\r\nsi_botDifficulty 3\r\nbot_aimSkill 3\r\nsi_warmupSpawn 1\r\nsi_readyPercent \"1\"\r\nsi_disableVoting 0\r\nseta g_minAutoVotePlayers 1\r\ng_spectatorMode 1\r\ng_spectateFreeFly 1\r\n\r\n//Team settings\r\nsi_teamForceBalance 1\r\ng_teamSwitchDelay 1\r\nsi_enemyTintEnabled 0\r\nsi_teamVoipEnabled 1\r\nsi_globalVoipEnabled 1\r\n\r\n//Maps\r\n//g_mapRotationVote \"mp/aquarium,mp/ccity,mp/reactor,mp/refuel,mp/resort,mp/sectow,mp/shipyard, mp/terminal\"\r\n\r\n// This rotation has DLC maps included\r\ng_mapRotationVote \"mp/aquarium,mp/ccity,mp/reactor,mp/refuel,mp/resort,mp/sectow,mp/shipyard,mp/terminal,mp/lab,mp/founders\"\r\n\r\nspawnserver mp/ccity";
-            File.WriteAllText(DefaultConfig, CONTENT);
+            File.WriteAllText(configFile, CONTENT);
         }
 
         // - Start server function, return its Process to WindowsGSM
@@ -75,7 +76,7 @@ namespace WindowsGSM.Plugins
             //Try gather a password from the gui
             //brink.exe  +set si_name "Brink Dedicated Server 1"27015 +set net_serverPortMaster 27016
 
-            StringBuilder sb = new StringBuilder(); 
+            StringBuilder sb = new StringBuilder();
             sb.Append($"+set si_name {_serverData.ServerName} ");
             sb.Append($"+set net_ip {_serverData.ServerIP} ");
             sb.Append($"+set net_serverPort {_serverData.ServerPort} ");
